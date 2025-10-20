@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
+<!-- saved from url=(0043)https://hoa-vu.vercel.app/20-10-vui-ve.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <title>Flower Animation CSS</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./Flower Animation CSS_files/style.css">
 
 </head>
 
-<body>
+<body class="">
 
-  <body class="not-loaded">
+     <div class="text-center" id=""><h3 id="loveText"> Chúc vợ yêu của anh 20/10 vui vẽ mãi xinh đẹp</h3></div>
     <div class="night"></div>
+
     <div class="flowers">
+
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
           <div class="flower__leaf flower__leaf--1"></div>
@@ -308,13 +309,13 @@
         </div>
       </div>
     </div>
-  </body>
-  <!-- partial -->
-  <script src="./script.js"></script>
+  
+  
+  <script src="./Flower Animation CSS_files/script.js.download"></script>
 
-</body>
 
-</html>
+
+
 <style>
   *,
 *::after,
@@ -1523,6 +1524,68 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+.text-center {
+    position: absolute;
+    top: 5%;
+    font-size: 26px;
+    display: block;
+    z-index: 99;
+    text-transform: capitalize;
+    font-family: cursive;
+    
+    /* Tạo gradient cho chữ */
+    background: linear-gradient(to right, #00ffd9, #82d6ca, #00ffd9);
+    background-size: 200% auto; /* quan trọng để tạo hiệu ứng chạy */
+    
+    /* Hiển thị gradient trong chữ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 1px #ff6ec7, 0 0 20px #ff8c00, 0 0 30px #40e0d0;
+    /* Animation */
+     animation: gradientText 5s ease infinite, floatText 3s ease-in-out infinite;
+}
+
+/* Hiệu ứng chạy màu */
+@keyframes gradientText {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.text-center {
+  animation: gradientText 5s ease infinite, floatText 3s ease-in-out infinite;
+}
+#loveText {
+  opacity: 0;                 /* Ẩn ban đầu */
+  transform: translateY(30px); /* Dịch xuống 30px */
+  transition: all 1.5s ease;   /* Hiệu ứng mượt */
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s ease infinite;
+}
+
+/* Khi có class .show => hiện ra mượt */
+#loveText.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient chuyển động */
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 </style>
 <script>
@@ -1532,5 +1595,11 @@ body {
     clearTimeout(c);
   }, 1000);
 };
-
+document.addEventListener("DOMContentLoaded", function() {
+  // Sau 5 giây (khi hoa mọc xong)
+  setTimeout(() => {
+    document.getElementById("loveText").classList.add("show");
+  }, 4000); // đổi 5000 thành đúng thời gian hiệu ứng hoa kết thúc
+});
 </script>
+</body><!-- partial --></html>
